@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAHARZ Report</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #07111f;
+    --panel: rgba(14, 22, 36, 0.96);
+    --line: rgba(121, 171, 255, 0.18);
+    --accent: #88b7ff;
+    --accent-2: #27c884;
+    --text: #e7eefc;
+    --muted: #8ea4ca;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+      radial-gradient(circle at top, rgba(53, 96, 170, 0.22), transparent 36%),
+      linear-gradient(180deg, #050b15, #08111d 38%, #07111f 100%);
+    color: var(--text);
+    padding: 24px;
+  }
+  .shell {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .hero {
+    background: linear-gradient(135deg, rgba(25, 38, 61, 0.95), rgba(10, 16, 27, 0.95));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 28px;
+    margin-bottom: 18px;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0.02em; }
+  .hero p { margin: 0; color: var(--muted); line-height: 1.55; max-width: 900px; }
+  .toolbar {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--line);
+    background: rgba(20, 28, 44, 0.92);
+    color: var(--text);
+    padding: 11px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 16px;
+  }
+  .k {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .v { font-size: 22px; font-weight: 800; }
+  .section {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+  .section h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    border-bottom: 1px solid rgba(121, 171, 255, 0.12);
+    padding: 10px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    color: #8fbaff;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .note {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    body { padding: 14px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="hero">
+      <h1>Mt. Agung LAHARZ rerun</h1>
+      <p>This page summarizes the rerun simulation from the local DEM and stream network. It includes the starting points, inundation zones, and the estimated downstream flow paths extracted from the stream network.</p>
+      <div class="toolbar">
+        <a class="btn" href="../../laharz_3d.html" target="_blank" rel="noopener">Open 3D Viewer</a>
+        <a class="btn" href="laharz_report.json" download>Download JSON</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card"><div class="k">Confidence</div><div class="v">95.0%</div></div>
+      <div class="card"><div class="k">Stream Threshold</div><div class="v">250</div></div>
+      <div class="card"><div class="k">Starting Points</div><div class="v">3</div></div>
+      <div class="card"><div class="k">Zones</div><div class="v">3</div></div>
+      <div class="card"><div class="k">Flow Paths</div><div class="v">3</div></div>
+      <div class="card"><div class="k">Total Volume</div><div class="v">972 m³</div></div>
+      <div class="card"><div class="k">Total Area</div><div class="v">15.17 ha</div></div>
+      <div class="card"><div class="k">Raster Size</div><div class="v">3859 × 4802</div></div>
+    </div>
+
+    <div class="section">
+      <h2>Flow Paths</h2>
+      <p class="note">These paths show the approximate downstream route traced through the extracted stream network for each starting point. The end coordinate marks the farthest point reached by the animated flow.</p>
+      <table>
+        <thead>
+          <tr><th>Start</th><th>Volume</th><th>Path Length</th><th>Points</th><th>End Coordinate</th></tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>SP 1</td>
+              <td>372 m³</td>
+              <td>704 m</td>
+              <td>157</td>
+              <td>115.497688, -8.348990</td>
+            </tr>
+            
+            <tr>
+              <td>SP 2</td>
+              <td>278 m³</td>
+              <td>644 m</td>
+              <td>132</td>
+              <td>115.497814, -8.348599</td>
+            </tr>
+            
+            <tr>
+              <td>SP 3</td>
+              <td>322 m³</td>
+              <td>674 m</td>
+              <td>154</td>
+              <td>115.497734, -8.348732</td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Starting Points</h2>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Volume</th><th>Coordinates</th></tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>1</td>
+              <td>372 m³</td>
+              <td>115.499386, -8.343836</td>
+            </tr>
+            
+            <tr>
+              <td>2</td>
+              <td>278 m³</td>
+              <td>115.499232, -8.344009</td>
+            </tr>
+            
+            <tr>
+              <td>3</td>
+              <td>322 m³</td>
+              <td>115.499350, -8.343909</td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Zones</h2>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Name</th><th>Source</th><th>Volume</th><th>Parts</th><th>Area</th></tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>1</td>
+              <td>Zone 1</td>
+              <td>stream_0_372.shp</td>
+              <td>372 m³</td>
+              <td>148</td>
+              <td>5.51 ha</td>
+            </tr>
+            
+            <tr>
+              <td>2</td>
+              <td>Zone 2</td>
+              <td>stream_1_278.shp</td>
+              <td>278 m³</td>
+              <td>146</td>
+              <td>4.61 ha</td>
+            </tr>
+            
+            <tr>
+              <td>3</td>
+              <td>Zone 3</td>
+              <td>stream_2_322.shp</td>
+              <td>322 m³</td>
+              <td>183</td>
+              <td>5.05 ha</td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
